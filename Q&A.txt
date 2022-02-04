@@ -1,0 +1,5 @@
+ 
+1. Nu am inteles exact ce face "use strict" si daca are rost sa il folosim sau nu.
+
+2. Nullish coalescing operator
+
