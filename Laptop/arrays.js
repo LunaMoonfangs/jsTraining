@@ -1,5 +1,5 @@
 // Remove duplicate members from an array 
-
+/*
 let arr1 = [0,1,2,3,4,5,6,7,8,9,0,1,6,7,5,5,0,4,4,6,5,7,5,3,2];
 
 let lungime = arr1.length;
@@ -32,7 +32,7 @@ for (i=0; i<arr1.length;i++){
 console.log(arr1);
 console.log(removed);
 console.log('Au fost eliminate ' + dubluri + ' dubluri.');
-
+*/
 
 // arrow function
 /*
