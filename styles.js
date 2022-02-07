@@ -1,5 +1,4 @@
 
-
 /* 
 Bad style
 importance: 4
@@ -23,7 +22,9 @@ else
   alert(pow(x,n))
 }
 */
+
 /*
+
 function pow(x, n) {
   let result=1;
     for(let i = 0; i < n; i++) {
@@ -41,5 +42,8 @@ if (n <=0 ) {
     } else {
     alert( pow(x,n) );
 }
+
 */
+
+
 
