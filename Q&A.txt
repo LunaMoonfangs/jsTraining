@@ -3,3 +3,15 @@
 
 2. Nullish coalescing operator
 
+3.
+
+ Here in the tutorial we’ll be using the following JavaScript libraries for tests:
+
+    Mocha – the core framework: it provides common testing functions including describe and it and the main function that runs tests.
+    Chai – the library with many assertions. It allows to use a lot of different assertions, for now we need only assert.equal.
+    Sinon – a library to spy over functions, emulate built-in functions and more, we’ll need it much later.
+    there are more high-level test-runners, like karma and others, that make it easy to autorun many different tests.
+
+Folositi test-ere ? daca da, trebuie sa ma documentez de pe acum ?
+
+4. 

@@ -1,4 +1,4 @@
-
+/*
 let a = "" + 1 + 0 // = "10" // (1)
 let b = "" - 1 + 0 // = -1 // (2)
 let c = true + false // = 1
@@ -13,7 +13,7 @@ let k = "  -9  " - 5 //= -14 // (4)
 let l = null + 1 //= 1 // (5)
 let m = undefined + 1 //= NaN // (6)
 let n = " \t \n" - 2 //= -2 // (7)
-
+*/
 /* 
 
 
@@ -26,7 +26,7 @@ let n = " \t \n" - 2 //= -2 // (7)
     (7) Space characters, are trimmed off string start and end when a string is converted to a number. Here the whole string consists of space characters, such as \t, \n and a “regular” space between them. So, similarly to an empty string, it becomes 0.
 
     */
-
+/*
     console.log('a= ' + a + ' si este ',typeof a);
     console.log('b= ' + b + ' si este ',typeof b);
     console.log('c= ' + c + ' si este ',typeof c);
@@ -42,4 +42,4 @@ let n = " \t \n" - 2 //= -2 // (7)
     console.log('m= ' + m + ' si este ',typeof m);
     console.log('n= ' + n + ' si este ',typeof n);
 
-
+*/
