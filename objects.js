@@ -171,18 +171,98 @@ function makeUser() {
 
 let user = makeUser();
 
-alert( user.ref.name ); // What's the result?    == undefined
+alert( user.ref.name ); // What's the result?   // == undefined
 
 */
+/*
 function makeUser() {
     return {          
     name: "John",
       ref() {
-        return this;
+        return this; // functie care returneaza `this` 
+                    //in loc de valoare directa
       } 
     }  
 }
 
 let user = makeUser();
 
-alert( user.ref().name );
+alert( user.ref().name ); 
+*/
+
+// ***************************************************
+/*
+Create a calculator
+importance: 5
+
+Create an object calculator with three methods:
+
+    read() prompts for two values and saves them as object properties.
+    sum() returns the sum of saved values.
+    mul() multiplies saved values and returns the result.
+
+let calculator = {
+  // ... your code ...
+};
+
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() );
+
+*/
+
+let calculator = {
+  // ... your code ... 
+  nr1 : 0,
+  nr2 : 0,
+
+  read () {
+    this.nr1 = Number( prompt(`Primul nr= `, this.nr1) );
+    this.nr2 = Number( prompt(`Al 2lea nr=  `, this.nr2) );      
+    return this.nr1,this.nr2;
+  },
+
+  sum(){
+    return this.nr1+this.nr2;
+  },
+
+  mul() {
+    return this.nr1 * this.nr2;
+  }
+
+};
+
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() );
+
+// Sandbox pt calculator:
+// nu mi-a iesit
+/*
+describe("suma este", function() {
+
+  describe("aduna nr1 cu nr2", function() {
+
+    function makeTest(x,y) {
+      let expected = x + y;
+      it(`${x} adunat cu ${y} face ${expected}`, function() {
+        assert.equal( calculator.sum(x, y), expected);
+      });
+    }
+
+    for (let x = 1; x <= 5; x++) {
+      makeTest(x);
+    }
+
+  });
+/*
+  it("if n is negative, the result is NaN", function() {
+    assert.isNaN(pow(2, -1));
+  });
+
+  it("if n is not integer, the result is NaN", function() {
+    assert.isNaN(pow(2, 1.5));
+  });
+
+});
+*/
