@@ -245,13 +245,13 @@ describe("suma este", function() {
 
     function makeTest(x,y) {
       let expected = x + y;
-      it(`${x} adunat cu ${y} face ${expected}`, function() {
-        assert.equal( calculator.sum(x, y), expected);
+      it(`${x} adunat cu ${y} egal ${expected}`, function() {
+        assert.equal( calculator.sum(), expected);
       });
     }
 
-    for (let x = 1; x <= 5; x++) {
-      makeTest(x);
+    for (let key in calculator) {
+      makeTest(key);
     }
 
   });
@@ -265,4 +265,101 @@ describe("suma este", function() {
   });
 
 });
+
 */
+
+// ***************************************************
+
+/* 
+
+Chaining
+importance: 2
+
+There’s a ladder object that allows to go up and down:
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+  },
+  down() {
+    this.step--;
+  },
+  showStep: function() { // shows the current step
+    alert( this.step );
+  }
+};
+
+Now, if we need to make several calls in sequence, can do it like this:
+
+ladder.up();
+ladder.up();
+ladder.down();
+ladder.showStep(); // 1
+ladder.down();
+ladder.showStep(); // 0
+
+Modify the code of up, down and showStep to make the calls chainable, like this:
+
+ladder.up().up().down().showStep().down().showStep(); // shows 1 then 0
+
+*/
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function() { // shows the current step
+    alert( this.step );
+    return this;
+  }
+};
+/*
+ladder.up();
+ladder.up();
+ladder.down();
+ladder.showStep(); // 1
+ladder.down();
+ladder.showStep(); // 0
+*/
+
+
+//ladder.up().up().down().showStep().down().showStep();
+
+// optional: confirmari de urcare / coborare
+
+let continua = 1;
+let turn = 1;
+do{
+  continua = confirm( `Esti la etajul ${ladder.step} , vrei sa mai mergi?` ) ;
+    
+  if(continua){
+  
+    let pas = confirm ( ` Esti la etajul ${ladder.step}, urci sau cobori ?` );
+
+    if ( (ladder.step === 0) && (pas === false) ){
+      ladder.step = 0;
+      continua = confirm('Esti deja la parter, mai continui? ');
+    } else {
+      if(pas){
+          ladder.up();
+        } else {
+          ladder.down();
+        }
+      }
+
+  } else {
+    alert(`Te-ai oprit la etajul ${ladder.step} `);
+  }
+   
+}while (continua);
+
+ 
+
+
