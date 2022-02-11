@@ -1,4 +1,5 @@
-/*
+/*    
+// ************************ week 2 ( 4 - 11.02) ***********************************
 Create new Calculator
 importance: 5
 
@@ -103,6 +104,7 @@ alert(accumulator.value); // shows the sum of these values
 
 */
 
+/*
 function Accumulator (startingValue){
 
   this.value = startingValue;
@@ -120,3 +122,5 @@ accumulator.read();
 accumulator.read();
 accumulator.read();
 alert(accumulator.value);
+
+*/
