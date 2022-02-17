@@ -215,17 +215,17 @@ alert( calculator.mul() );
 
 let calculator = {
   // ... your code ... 
-  nr1 : 0,
-  nr2 : 0,
+  nr1: 0,
+  nr2: 0,
 
-  read () {
-    this.nr1 = Number( prompt(`Primul nr= `, this.nr1) );
-    this.nr2 = Number( prompt(`Al 2lea nr=  `, this.nr2) );      
-    return this.nr1,this.nr2;
+  read() {
+    this.nr1 = Number(prompt(`Primul nr= `, this.nr1));
+    this.nr2 = Number(prompt(`Al 2lea nr=  `, this.nr2));
+    return this.nr1, this.nr2;
   },
 
-  sum(){
-    return this.nr1+this.nr2;
+  sum() {
+    return this.nr1 + this.nr2;
   },
 
   mul() {
@@ -235,8 +235,8 @@ let calculator = {
 };
 
 calculator.read();
-alert( calculator.sum() );
-alert( calculator.mul() );
+alert(calculator.sum());
+alert(calculator.mul());
 
 // Sandbox pt calculator:
 // nu mi-a iesit
@@ -317,8 +317,8 @@ let ladder = {
     this.step--;
     return this;
   },
-  showStep: function() { // shows the current step
-    alert( this.step );
+  showStep: function () { // shows the current step
+    alert(this.step);
     return this;
   }
 };
@@ -338,30 +338,30 @@ ladder.showStep(); // 0
 
 let continua = 1;
 let turn = 1;
-do{
-  continua = confirm( `Esti la etajul ${ladder.step} , vrei sa mai mergi?` ) ;
-    
-  if(continua){
-  
-    let pas = confirm ( ` Esti la etajul ${ladder.step}, urci sau cobori ?` );
+do {
+  continua = confirm(`Esti la etajul ${ladder.step} , vrei sa mai mergi?`);
 
-    if ( (ladder.step === 0) && (pas === false) ){
+  if (continua) {
+
+    let pas = confirm(` Esti la etajul ${ladder.step}, urci sau cobori ?`);
+
+    if ((ladder.step === 0) && (pas === false)) {
       ladder.step = 0;
       continua = confirm('Esti deja la parter, mai continui? ');
     } else {
-      if(pas){
-          ladder.up();
-        } else {
-          ladder.down();
-        }
+      if (pas) {
+        ladder.up();
+      } else {
+        ladder.down();
       }
+    }
 
   } else {
     alert(`Te-ai oprit la etajul ${ladder.step} `);
   }
-   
-}while (continua);
 
- 
+} while (continua);
+
+
 
 
