@@ -1,4 +1,5 @@
-/*
+/*    
+// ************************ week 2 ( 4 - 11.02) ***********************************
 Create new Calculator
 importance: 5
 
@@ -103,6 +104,7 @@ alert(accumulator.value); // shows the sum of these values
 
 */
 
+/*
 function Accumulator (startingValue){
 
   this.value = startingValue;
@@ -120,3 +122,67 @@ accumulator.read();
 accumulator.read();
 accumulator.read();
 alert(accumulator.value);
+
+*/
+
+// ****************************************
+
+let a = {
+  nume: 'Ion',
+  prenume: 'Popa',
+  schimb: function (newNume) {
+    this.nume = newNume;
+  }
+};
+
+let b = Object.create(a);
+
+b.nume = 'Vasilika';
+
+class Persoana {
+  #nume;
+  prenume;
+ 
+  // contructor
+  constructor(numeInitial, prenumeInitial) {
+    this.#nume = numeInitial;
+    this.prenume = prenumeInitial;
+  }
+
+  cumMaCheama() {
+    console.log(this.#nume);
+  }
+
+  schimb(newNume) {
+    this.#nume = newNume;
+  }
+
+  get numeComplet(){    // getter
+    console.log(this.#nume + ' ' +  this.prenume);
+  }
+
+  set numeComplet(numeSet){ // setter
+    this.#nume = numeSet.split(' ')[0];
+    this.prenume = numeSet.split(' ')[1];
+    console.log('s-a facut schimbarea, ca sa fiu funny :)')
+  }
+
+}
+
+let ceva = new Persoana('Numele_pe_care_il_vrem_initial', 'Prenume_initial');
+
+class Programator extends Persoana {
+  limbaje;
+
+  constructor(numeInitial, prenumeInitial, limbajeInitial) {
+    super(numeInitial, prenumeInitial);   // apeleaza constructorul din Persoana
+    this.limbaje = limbajeInitial;  
+  }
+
+}
+
+let cinevaProgramator = new Programator('Numele_pe_care_il_vrem_initial', 'Prenume_initial', 'jS');
+cinevaProgramator.schimb('John');
+
+
+
