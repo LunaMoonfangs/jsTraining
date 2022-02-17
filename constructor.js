@@ -125,7 +125,7 @@ alert(accumulator.value);
 
 */
 
-// ****************************************
+// ***************** 17.02.22 ***********************
 
 let a = {
   nume: 'Ion',
@@ -140,7 +140,7 @@ let b = Object.create(a);
 b.nume = 'Vasilika';
 
 class Persoana {
-  #nume;
+  #nume;  // daca folosesc #nume  nu o sa poata fi modificat prin simplu .nume = ' ' >> trebuie folosit un setter
   prenume;
  
   // contructor
