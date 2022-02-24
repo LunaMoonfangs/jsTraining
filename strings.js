@@ -117,10 +117,11 @@ alert( extractCurrencyValue('$120') === 120 ); // true
 
 Open a sandbox with tests.
 
-*/
 
 function extractCurrencyValue(str){
     let value = Number(str.slice(1));
     return value;
 }
 alert( extractCurrencyValue('$120') === 120 );
+
+*/
