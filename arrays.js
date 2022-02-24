@@ -150,10 +150,10 @@ function getMaxSubSum(arr){
 
 getMaxSubSum(arr);   
 
-*/
+// 
 
-debugger;
-//let maxim = 0;
+
+
 let arr = [1, -5, 2, 5, 1, 8, 4, -1, -9, 6];
 
 function getMaxSubSum(arr) {
@@ -162,7 +162,7 @@ function getMaxSubSum(arr) {
     let tempIndex = 0;
     tempArr[tempIndex] = 0;
     for (let elm of arr) {
-        //for( let j=0 ; j < arr.lenght ; j++ ){
+        
         console.log('j este: ' + elm + ' tempIndex este: ' + tempIndex);
         if (elm > 0) {
             tempArr[tempIndex] += elm;
@@ -174,7 +174,7 @@ function getMaxSubSum(arr) {
         if (tempArr[tempIndex] > tempMax) {
             tempMax = tempArr[tempIndex];
         }
-        //}
+        
     }
 
     alert(`tempArr este: ` + tempArr);
@@ -188,3 +188,6 @@ function getMaxSubSum(arr) {
 }
 
 getMaxSubSum(arr);   
+*/
+
+

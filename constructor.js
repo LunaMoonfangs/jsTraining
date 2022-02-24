@@ -126,7 +126,7 @@ alert(accumulator.value);
 */
 
 // ***************** 17.02.22 ***********************
-
+/*
 let a = {
   nume: 'Ion',
   prenume: 'Popa',
@@ -184,5 +184,5 @@ class Programator extends Persoana {
 let cinevaProgramator = new Programator('Numele_pe_care_il_vrem_initial', 'Prenume_initial', 'jS');
 cinevaProgramator.schimb('John');
 
-
+*/
 
