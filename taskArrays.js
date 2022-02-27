@@ -39,8 +39,8 @@ function camelize(str) {
         }
     });
     *//*
-    camel = camel.join('');
-    return camel;
+camel = camel.join('');
+return camel;
 }
 
 alert(camelize("asd-dsa-red-a"));
@@ -81,6 +81,55 @@ console.log(pozitii);
 */
 
 // remake numai cu string !
+debugger;
+// schimbare cu functie de lower sau upper case
+function camelize(str) {
+    
+    let camel = '';
+    let temp = '';
+    let up = '';
+    
+    for (let char of str) {
+        if (char != '-') {
+            temp = temp + char;            
+        } else {
+            /*
+            up = temp[0].toUpperCase();
+            temp = temp.slice(1);
+            camel = camel + up + temp;
+            */
+            camel = camel + toUp(temp,true);
+            temp = '';
+        }
+    }
+    /*
+    up = temp[0].toUpperCase();
+    temp = temp.slice(1);
+    camel = camel + up + temp;
+    */
+    camel = camel + toUp(temp,true);
+/*
+    up = camel[0].toLowerCase();
+    temp = camel.slice(1);
+    camel = up + temp;
+*/
+    camel = toUp(camel,false);
+    alert(`Stringul camelize este: ${camel}`);
+}
+// ****** use function 
+function toUp(str,boolean) {
+    if(boolean){
+    return str[0].toUpperCase() + str.slice(1);
+    } else {
+    return  str[0].toLowerCase() + str.slice(1);
+    }
+    
+}
+
+camelize("a-sd-dsa-red-a");
+camelize("back-ground-color");
+
+
 
 // ************************************************
 
@@ -129,13 +178,13 @@ let arr = ["HTML", "JavaScript", "CSS","test", "aaaa"];
 let sorted = copySorted(arr);
 
 function copySorted(arr){
-    //let cpy = arr.slice(0);  
+    //let cpy = arr.slice(0);
     let cpy = [...arr];
-    
+
     for (let elm of cpy){
         cpy = cpy.sort((a,b)=> a-b);
     }
-  return cpy;      
+  return cpy;
 }
 
 alert(`${arr} sortat este:  ${sorted}` );
@@ -175,8 +224,8 @@ function filterRange(arr, min , max){
         } else {
             return false;
         }
-    } ); 
-    
+    } );
+
 }
 
 console.log("arr= " , arr);
