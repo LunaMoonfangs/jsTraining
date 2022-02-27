@@ -79,6 +79,9 @@ b = b.join('');
 console.log(b);
 console.log(pozitii);
 */
+
+// remake numai cu string !
+
 // ************************************************
 
 /*
