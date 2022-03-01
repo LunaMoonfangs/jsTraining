@@ -358,10 +358,15 @@ class Calculator{
     operator;
     
     read() {
-        this.str = prompt("Introdu un string: ");
+        const str = prompt("Introdu un string: "); 
+        const arr = str.split(" ");
+        /*
         this.nr1 = Number(this.str.split(' ')[0]); //split returneaza un array
         this.operator = this.str.split(' ')[1];
-        this.nr2 = Number(this.str.split(' ')[2]);
+        this.nr2 = Number(this.str.split(' ')[2]);*/
+        this.nr1 = arr[0];
+        this.operator = arr[1];
+        this.nr2 = arr[2];
     }
     
     method = {
@@ -415,11 +420,11 @@ class Calculator{
     }
     
     // calculate dinamic 
-
+/*
     calculateDinamic(){
-        return eval(this.str);
+        return eval(this.str); // nu se foloseste
     }
-
+*/
 }
 
 let calc = new Calculator;
@@ -436,8 +441,31 @@ newCalc.addMethod('*', (a,b) => {return a * b} ); // adaug functia de inmultire
 newCalc.addMethod('/', (a,b) => {return a / b} );
 newCalc.addMethod('**', (a,b) => {return a ** b} );
 
+
+// ****************************
+
+/* Exemplu concret:
+
+(2+47)*2-(3+2)**2
+
+r1 = 2+47;
+r2 = r1*2;
+r3 = 3+2;
+r4 = r3**2;
+rf=r2-r4; 
+
+//newCalc('-', (r2,r4))
+//newCalc('-', (newCalc('*',(r1,2)),r4))
+//newCalc('-', (newCalc('*',(newCalc('+', (2,47)),2)),r4))
+//newCalc('-', (newCalc('*',(newCalc('+', (2,47)),2)),newCalc('**', (r3,2))))
+
+newCalc('-', (newCalc('*',(newCalc('+', (2,47)),2)),newCalc('**', (newCalc('+',(3,2)),2))))
+*/
 newCalc.read();
 
 console.log(`Rezultatul este ${newCalc.calculate()}`);
 
 console.log(`Rezultatul la calculatorDinamic este: ${newCalc.calculateDinamic()}`);
+
+// ****************************
+
