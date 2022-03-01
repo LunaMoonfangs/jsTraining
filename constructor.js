@@ -186,3 +186,79 @@ cinevaProgramator.schimb('John');
 
 */
 
+// ************* 01.03.2022 **************
+/*
+class Masina {
+  marca ;
+  motor ;
+  nrRoti = 4;
+
+  constructor(marca,motor){
+    this.marca = marca ;
+    this.motor = motor;
+  }
+
+  prezentare() {
+    console.log(`Masina e ${this.marca} , are motor de ${this.motor} si are ${this.nrRoti} roti`);
+  }
+  
+}
+
+class Bicicleta extends Masina {
+  nrRoti = 2;
+  // are si marca 
+  // are si motor (preluate de la class Masina)
+}
+
+
+
+let furiaRoha = new Masina("mercedes", 2000);
+furiaRoha.prezentare();
+
+let tohan = new Bicicleta('Tohan', null);
+
+tohan.prezentare();
+
+// obj literal
+*//*
+function Masina2(marca, motor) {
+  this.nrRoti = 4;
+  this.marca = marca;
+  this.motor = motor;
+
+  this.prezentare = function() {
+    console.log(`Masina e ${this.marca} , are motor de ${this.motor} si are ${this.nrRoti} roti`);
+  }
+}
+
+let furiaRoha2 = new Masina2("Dacia", 2000);
+furiaRoha2.prezentare();
+
+let tohan2 = Object.create( new Masina2('Tohan', null));
+
+//let tohan2 = new Bicicleta2('Tohan',null);
+tohan2.nrRoti = 2;
+debugger;
+tohan2.prezentare();
+
+*/
+/*
+const o = {
+  a: 2,
+  m: function() {
+    return this.a + 1;
+  }
+};
+
+console.log(o.m()); // 3
+// When calling o.m in this case, 'this' refers to o
+
+const p = Object.create(o);
+// p is an object that inherits from o
+
+p.a = 4; // assign the value 4 to the property 'a' on p
+console.log(p.m()); // 5
+// when p.m is called, 'this' refers to p.
+// So when p inherits the function m of o,
+// 'this.a' means p.a, the property 'a' of p
+*/

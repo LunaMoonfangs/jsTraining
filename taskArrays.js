@@ -81,7 +81,7 @@ console.log(pozitii);
 */
 
 // remake numai cu string !
-debugger;
+/*
 // schimbare cu functie de lower sau upper case
 function camelize(str) {
     
@@ -97,22 +97,22 @@ function camelize(str) {
             up = temp[0].toUpperCase();
             temp = temp.slice(1);
             camel = camel + up + temp;
-            */
-            camel = camel + toUp(temp,true);
-            temp = '';
-        }
-    }
-    /*
-    up = temp[0].toUpperCase();
-    temp = temp.slice(1);
-    camel = camel + up + temp;
-    */
-    camel = camel + toUp(temp,true);
+            */ /*
+camel = camel + toUp(temp,true);
+temp = '';
+}
+}
 /*
-    up = camel[0].toLowerCase();
-    temp = camel.slice(1);
-    camel = up + temp;
-*/
+up = temp[0].toUpperCase();
+temp = temp.slice(1);
+camel = camel + up + temp;
+*/ /*
+camel = camel + toUp(temp,true);
+/*
+up = camel[0].toLowerCase();
+temp = camel.slice(1);
+camel = up + temp;
+*/ /*
     camel = toUp(camel,false);
     alert(`Stringul camelize este: ${camel}`);
 }
@@ -129,7 +129,7 @@ function toUp(str,boolean) {
 camelize("a-sd-dsa-red-a");
 camelize("back-ground-color");
 
-
+*/
 
 // ************************************************
 
@@ -248,3 +248,196 @@ let ceva = {
 let {a,b,...rest} = ceva;
 console.log(rest);  // == { c : 'ceva', d: 'e', e:'tz' }
 */
+
+
+// ************** 01.03.22 *******************
+
+/*
+Create an extendable calculator
+importance: 5
+
+Create a constructor function Calculator that creates “extendable” calculator objects.
+
+The task consists of two parts.
+
+    First, implement the method calculate(str) that takes a string like "1 + 2" 
+    in the format “NUMBER operator NUMBER” (space-delimited) and returns the result.
+     Should understand plus + and minus -.
+
+    Usage example:
+
+let calc = new Calculator;
+
+alert( calc.calculate("3 + 7") ); // 10
+
+Then add the method addMethod(name, func) that teaches the calculator a new operation. 
+It takes the operator name and the two-argument function func(a,b) that implements it.
+
+For instance, let’s add the multiplication *, division / and power **:
+
+    let powerCalc = new Calculator;
+    powerCalc.addMethod("*", (a, b) => a * b);
+    powerCalc.addMethod("/", (a, b) => a / b);
+    powerCalc.addMethod("**", (a, b) => a ** b);
+
+    let result = powerCalc.calculate("2 ** 3");
+    alert( result ); // 8
+
+    No parentheses or complex expressions in this task.
+    The numbers and the operator are delimited with exactly one space.
+    There may be error handling if you’d like to add it.
+
+*/
+
+/*
+function Calculator() {
+    this.nr1;
+    this.nr2;
+    this.str;
+    this.operator;
+    this.read = function () {
+        this.str = prompt("Introdu un string: ");
+    
+    
+    }
+    
+    this.calculate = function (str) {
+        // iteratie peste string ca sa gasesc " "
+        let temp = '';
+        let index = -1;
+        index = str.indexOf(' ');
+        alert(`Index este: ${index}`);
+        // cauta primul numar 
+        if (index !== -1) {
+            for (let i = 0; i < index; i++) {
+                temp = temp + str[i];
+            }
+            alert(`Temp este: ${temp}`);
+            this.nr1 = Number(temp);
+            alert(`nr1 este: ${this.nr1}`);
+        }    
+        debugger;
+        temp = '';
+        // cauta al 2lea nr    
+        index = str.lastIndexOf(' ');
+        alert(`Index este: ${index} in string ${str}`);
+        if (index !== -1) {       
+            for (let j = index; j < str.length ; j++) {
+                temp = temp + str[j];
+            }
+            alert(`Temp este: ${temp}`);            
+            this.nr2 = Number(temp);
+            alert(`nr2 este: ${this.nr2}`);   
+        }
+        // verirfica operatorul si calculeaza
+
+        if (str.includes('+')) {
+            this.suma = this.nr1 + this.nr2;
+            return this.suma;
+        } else {
+            this.suma = this.nr1 - this.nr2;
+            return this.suma;
+        }
+    }
+
+    return this.suma;
+
+}
+
+let calc = new Calculator;
+calc.read();
+alert(calc.calculate(calc.str));
+
+*/
+
+// schimbat din function in class
+class Calculator{
+    nr1;
+    nr2;
+    str;
+    operator;
+    
+    read() {
+        this.str = prompt("Introdu un string: ");
+        this.nr1 = Number(this.str.split(' ')[0]); //split returneaza un array
+        this.operator = this.str.split(' ')[1];
+        this.nr2 = Number(this.str.split(' ')[2]);
+    }
+    
+    method = {
+        '+' : (a,b) => {return a + b},
+        '-' : (a,b) => {return a - b}
+    };
+
+    
+/*
+    calculate(str) {
+        // iteratie peste string ca sa gasesc " "
+        let temp = '';
+        let index = -1;
+        index = str.indexOf(' ');
+        //alert(`Index este: ${index}`);
+        // cauta primul numar 
+        if (index !== -1) {
+            for (let i = 0; i < index; i++) {
+                temp = temp + str[i];
+            }
+            //alert(`Temp este: ${temp}`);
+            this.nr1 = Number(temp);
+            //alert(`nr1 este: ${this.nr1}`);
+        }    
+        //debugger;
+        temp = '';
+        // cauta al 2lea nr    
+        index = str.lastIndexOf(' ');
+        //alert(`Index este: ${index} in string ${str}`);
+        if (index !== -1) {       
+            for (let j = index; j < str.length ; j++) {
+                temp = temp + str[j];
+            }
+            //alert(`Temp este: ${temp}`);            
+            this.nr2 = Number(temp);
+            //alert(`nr2 este: ${this.nr2}`);   
+        }
+        // verirfica operatorul si calculeaza
+
+        if (str.includes(' + ')) {
+            this.operator = this.nr1 + this.nr2;
+            return this.operator;
+        } else {
+            this.operator = this.nr1 - this.nr2;
+            return this.operator;
+        }    
+    }*/
+
+    calculate(){
+        return this.method[this.operator](this.nr1,this.nr2);
+    }
+    
+    // calculate dinamic 
+
+    calculateDinamic(){
+        return eval(this.str);
+    }
+
+}
+
+let calc = new Calculator;
+
+
+class pwrCalculator extends Calculator{
+    addMethod(newOperator,operatie){
+        this.method[newOperator] = operatie;  
+    }
+}
+
+let newCalc = new pwrCalculator;
+newCalc.addMethod('*', (a,b) => {return a * b} ); // adaug functia de inmultire
+newCalc.addMethod('/', (a,b) => {return a / b} );
+newCalc.addMethod('**', (a,b) => {return a ** b} );
+
+newCalc.read();
+
+console.log(`Rezultatul este ${newCalc.calculate()}`);
+
+console.log(`Rezultatul la calculatorDinamic este: ${newCalc.calculateDinamic()}`);
