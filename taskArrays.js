@@ -351,6 +351,7 @@ alert(calc.calculate(calc.str));
 */
 
 // schimbat din function in class
+/*
 class Calculator{
     nr1;
     nr2;
@@ -361,9 +362,11 @@ class Calculator{
         const str = prompt("Introdu un string: "); 
         const arr = str.split(" ");
         /*
+
         this.nr1 = Number(this.str.split(' ')[0]); //split returneaza un array
         this.operator = this.str.split(' ')[1];
         this.nr2 = Number(this.str.split(' ')[2]);*/
+/*
         this.nr1 = arr[0];
         this.operator = arr[1];
         this.nr2 = arr[2];
@@ -373,7 +376,7 @@ class Calculator{
         '+' : (a,b) => {return a + b},
         '-' : (a,b) => {return a - b}
     };
-
+*/
     
 /*
     calculate(str) {
@@ -414,17 +417,18 @@ class Calculator{
             return this.operator;
         }    
     }*/
-
+/*
     calculate(){
         return this.method[this.operator](this.nr1,this.nr2);
     }
-    
+*/  
     // calculate dinamic 
 /*
     calculateDinamic(){
         return eval(this.str); // nu se foloseste
     }
 */
+/*
 }
 
 let calc = new Calculator;
@@ -441,7 +445,7 @@ newCalc.addMethod('*', (a,b) => {return a * b} ); // adaug functia de inmultire
 newCalc.addMethod('/', (a,b) => {return a / b} );
 newCalc.addMethod('**', (a,b) => {return a ** b} );
 
-
+*/
 // ****************************
 
 /* Exemplu concret:
@@ -461,11 +465,328 @@ rf=r2-r4;
 
 newCalc('-', (newCalc('*',(newCalc('+', (2,47)),2)),newCalc('**', (newCalc('+',(3,2)),2))))
 */
+/*
 newCalc.read();
 
 console.log(`Rezultatul este ${newCalc.calculate()}`);
 
 console.log(`Rezultatul la calculatorDinamic este: ${newCalc.calculateDinamic()}`);
+*/
+
+
+// ******************** 02.03.22 *******************
+
+
+/*
+Map to names
+importance: 5
+
+You have an array of user objects, each one has user.name. Write the code that converts it into an array of names.
+
+For instance:
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+
+let names = // ... your code 
+
+alert( names ); // John, Pete, Mary
+
+// ***** my code :)
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+
+let names = users.map( item => item.name);
+
+console.log(`Numele userilor sunt: ${names}`);
+*/
+
+// **************************
+
+/* Map to objects
+importance: 5
+
+You have an array of user objects, each one has name, surname and id.
+
+Write the code to create another array from it, of objects with id and fullName, 
+where fullName is generated from name and surname.
+
+For instance:
+
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [ john, pete, mary ];
+
+let usersMapped = /* ... your code ... */
+
+/*
+usersMapped = [
+  { fullName: "John Smith", id: 1 },
+  { fullName: "Pete Hunt", id: 2 },
+  { fullName: "Mary Key", id: 3 }
+]
+*//*
+
+alert( usersMapped[0].id ) // 1
+alert( usersMapped[0].fullName ) // John Smith
+
+So, actually you need to map one array of objects to another. Try using => here. There’s a small catch.
+*/
+
+let john = { name: "John", surname: "Smith", id: 1, age: 28 };
+let pete = { name: "Pete", surname: "Hunt", id: 2, age: 35 };
+let mary = { name: "Mary", surname: "Jane", id: 3, age: 23 };
+let cpyMary = { name: "Mary", surname: "Jane", id: 4, age: 23 };
+
+let users = [ john, pete, mary , cpyMary];
+
+let usersMapped = users.map( item => ({ //daca foloseam {} era considerata functie, trebuie folosit ({ }) ca sa fie object 
+    fullName: `${item.name}  ${item.surname}`,
+    id: item.id
+  }) );
+
+for(let key of usersMapped){   
+    //console.log(`UsersMapped ID este: `);
+    console.log(`Numele complet al userului ${key.id} este ${key.fullName}`);
+}
+
+// *****************************************************
+/*
+Sort users by age
+importance: 5
+
+Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+
+For instance:
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let arr = [ pete, john, mary ];
+
+sortByAge(arr);
+
+// now: [john, mary, pete]
+alert(arr[0].name); // John
+alert(arr[1].name); // Mary
+alert(arr[2].name); // Pete
+
+*/
+
+let usersAge = users.map( item => ({ //daca foloseam {} era considerata functie, trebuie folosit ({ }) ca sa fie object 
+    name: item.name,
+    age: item.age
+  }) );
+
+  for(let key of usersAge){   
+    console.log(`Varsta lui ${key.name} este: ${key.age}`);
+  }  
+
+  function sortByAge(arr) {   
+        let cpy = arr.sort ((a,b) => a.age - b.age ); 
+        return cpy;
+  }
+console.log(`Sortare dupa varsta: `);
+console.log(sortByAge(usersAge)); // merge :)
+
+/*
+Shuffle an array
+importance: 3
+
+Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+
+Multiple runs of shuffle may lead to different orders of elements. For instance:
+
+All element orders should have an equal probability. For instance, [1,2,3] can be reordered as 
+[1,2,3] or [1,3,2] or [3,1,2] etc, with equal probability of each case.
+*/
+
+let randArr = [0,1,2,3,5];
+
+function suffleArr(arr){
+    let index = Math.floor(Math.random() * arr.length);
+    let suffArr = [];
+    let cpy = [];
+    // o copie pt a nu modifica randArr 
+    for (let elm of arr){
+    cpy.push(elm);
+    }
+    while( cpy.length) {
+        // random index
+        index = Math.floor(Math.random() * cpy.length );
+        
+        //push valoarea din cpy[index]
+        suffArr.push(cpy[index]);
+        
+        //eliminat din cpy
+        cpy.splice(index,1);
+               
+    }
+
+    return suffArr;
+
+}
+
+
+for(let i = 0; i < 6 ; i++){
+console.log(`${suffleArr(randArr)} este random array rezultat din ${randArr} `);
+}
+
+
+
+// *************************
+
+/* 
+
+Get average age
+importance: 4
+
+Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+
+The formula for the average is (age1 + age2 + ... + ageN) / N.
+
+For instance:
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 29 };
+
+let arr = [ john, pete, mary ];
+
+alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
+*/
+
+function getAverageAge(arr){
+    let suma = 0;
+    let average = NaN;
+    
+    for(let elm of arr){
+        //console.log(elm.age);
+        suma += elm.age;
+    }
+    //console.log(`suma= ${suma}`);
+
+// in solution la ei au folosit:
+// function getAverageAge(users) {
+// return users.reduce((prev, user) => prev + user.age, 0) / users.length;
+//}
+   
+    return average = suma / arr.length;
+}
+
+console.log(`Media de varsa este: ` + getAverageAge(usersAge));
+
+// ***************** 03.03.22 ************
+
+/*
+Filter unique array members
+importance: 4
+
+Let arr be an array.
+
+Create a function unique(arr) that should return an array with unique items of arr.
+
+For instance:
+
+function unique(arr) {
+  // your code 
+}
+
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+alert( unique(strings) ); // Hare, Krishna, :-O
+
+// ******
+
+function unique(arr) {
+    let compare = [];
+    for(let elm of arr){
+        if( !compare.includes(elm)){
+           compare.push(elm);     
+        }
+    }
+    console.log(`unique str este: ${compare}`)
+}
+
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+unique(strings);  // Hare, Krishna, :-O
+
+}
+
+*/
 
 // ****************************
 
+/*
+Create keyed object from array
+importance: 4
+
+Let’s say we received an array of users in the form 
+{id:..., name:..., age:... }.
+
+Create a function groupById(arr) that creates an object from it, 
+with id as the key, and array items as values.
+
+let users = [
+  {id: 'john', name: "John Smith", age: 20},
+  {id: 'ann', name: "Ann Smith", age: 24},
+  {id: 'pete', name: "Pete Peterson", age: 31},
+];
+
+let usersById = groupById(users);
+
+
+// after the call we should have:
+
+usersById = {
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
+}
+
+
+Such function is really handy when working with server data.
+
+In this task we assume that id is unique. 
+There may be no two array items with the same id.
+
+Please use array .reduce method in the solution.
+
+*/
+debugger;
+console.log(`Array de useri este: `);
+console.log(users);
+
+function groupById(arr) {
+    
+// https://youtu.be/kC3AasLEuBA?t=739
+// spread operator pt a copia tot obj din arr[]
+//[persoana.id] in [] pentru a lua valoarea din arr.id
+// : persoana pentru ca valoarea obj sa fie intreg obj din arr[]
+   let arrObj = arr.reduce( function( acc, persoana ) { 
+       return {...acc , [persoana.id] : persoana }
+   }, {}); 
+// {} din "}, {} ); " este ca valoarea initiala pt persoana sa fie un obj gol 
+   return arrObj; 
+}
+
+
+let usersById = groupById(users);
+console.log('*** Obiectul grupat dupa ID este: ');
+console.log(usersById);
