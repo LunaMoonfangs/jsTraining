@@ -94,6 +94,8 @@ function aclean(arr) {
 
     for (let char of arr){
         tempArr.push(char.toLowerCase().split("").sort().join(""));
+        // am folosit aceasi comanda pt tempArr ca sa le salvez intr-un Map sub forma de [array normal , array sortat]
+        map.set( char , char.toLowerCase().split("").sort().join("") );
     }
     console.log(`TempArr: `)
     console.log(tempArr); // ok [ [] , [] , [] ] 
@@ -104,18 +106,27 @@ function aclean(arr) {
 
 
     // le introduc intr-un map cu pereche de [ [cuvant sortat] , [cuvant normal] ]
-    
+    let setProba = new Set();
+
+    console.log('Map este: ');
+    console.log(map);
+    for (const [key, value] of map) {
+        console.log(key + ' = ' + value);
+        // incerc sa il trec in set in functie de value
+        setProba.add([key,value]);
+        set.add(value);
+      }
+
     //map.entries() – returns an iterable for entries [key, value], it’s used by default in for..of
 
-    for(let elm of tempArr){
-        set.add(elm);
-        map.entries([elm, findIndex(elm)]);
-            
-    }
+    setProba.forEach( (value) => { 
+        console.log(`value pt setProba este: ${value}`);
+        //return  value; 
+    });
 
     set.forEach( (value) => { 
         console.log(`value pt set este: ${value}`);
-        return  value; 
+        //return  value;
     });
 
     
