@@ -1,5 +1,5 @@
 // ************* 07.03.22 ****************
-
+console.log("******************* destructuring.js *********************");
 //import { salaries } from './mapAndSet.js';
 
 /*
@@ -32,7 +32,7 @@ alert( age ); // 30
 alert( isAdmin ); // false
 
 */
-console.log(`**************** destrucuring assignment ***************`);
+console.log(`**************** destructuring assignment ***************`);
 
 let userJ = {
     name: "John",
@@ -45,8 +45,8 @@ let userV = {
     isAdmin: true
 };
 
-let name,age,isAdmin; 
-({name , years:age , isAdmin = false} = userJ);
+let name, age, isAdmin;
+({ name, years: age, isAdmin = false } = userJ);
 //console.log(name);
 console.log(`${name} is ${age} y.o and is admin? ${isAdmin}`);
 //let{years:age} = user;
@@ -55,7 +55,7 @@ console.log(`${name} is ${age} y.o and is admin? ${isAdmin}`);
 //let{isAdmin = false} = user;
 //console.log(`isAdmin: ${isAdmin}`);
 
-({name , years:age , isAdmin = false} = userV);
+({ name, years: age, isAdmin = false } = userV);
 console.log(`${name} is ${age} y.o and is admin? ${isAdmin}`);
 
 // ******************************************************************
@@ -80,30 +80,36 @@ Create the function topSalary(salaries) that returns the name of the top-paid pe
 P.S. Use Object.entries and destructuring to iterate over key/value pairs.
 */
 
-
-
-
 let salarii = {
     "John": 100,
     "Pete": 300,
     "Mary": 550,
     "maryJane": 550
 };
-debugger;
-function topSalarii (obj){
+//debugger;
+function topSalarii(obj) {
+
     let max = [];
-/*
-    for (let value of Object.values(obj)) {
-        max = Math.max(value);
+    let personaj = null;
+    let salar = 0;
+    
+    for (const [key, value] of Object.entries(obj)) {
+        console.log(`${key}:${value}`);
+        max = [[key], [Math.max(value)]];
     }
-    console.log(max);
-*/
-    for (let [key, value] of Object.entries(obj)) {
-        console.log(`${key}:${value}`); 
-        max = [[key],[Math.max(value)]];
+
+    if(max[1] > salar){
+        console.log(max[0]);
+    } else {
+        console.log(personaj);
     }
-   console.log(max[0]);
+
 }
-let personaj,salar = null;
-( {personaj , salar} = Object.entries(salarii) );
+//let personaj = null, salar = null;
+({ personaj = null, salar = null } = Object.entries(objGol));
+topSalarii(objGol);
+({ personaj, salar } = Object.entries(salarii));
 topSalarii(salarii);
+
+// ***********************************************************************
+

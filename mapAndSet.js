@@ -1,5 +1,5 @@
 // ***************** 04.03.22**********
-
+console.log("******************* mapAndSet.js *********************");
 
 /*
 Filter unique array members
@@ -186,7 +186,7 @@ function sumSalaries(obj){
 }
 console.log(`***** Suma salariilor este: ${sumSalaries(salaries)}`);
 
-let objGol = {};
+const objGol = {};
 console.log(`***** Suma salariilor este: ${sumSalaries(objGol)}`);
 
 // *************************
