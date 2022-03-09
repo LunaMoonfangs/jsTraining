@@ -93,13 +93,42 @@ let dataFinala = new Date(date);
 dataFinala.setDate(dataFinala.getDate() + days);
 let ziua = dataFinala.getDate();
 
-console.log(`Diferenta de ${days} zile de la data de ${date}, nimereste in ziua:${ziua} , si este data de: ${dataFinala}`);
+console.log(`Diferenta de ${days} zile de la data de ${date}, 
+nimereste in ziua:${ziua} a lunii, si este data de: ${dataFinala}`);
 // calculeaza 
-console.log(`Data este: ${date}`);
+//console.log(`Data este: ${date}`);
 
 }
 
 const date = new Date(2022, 1, 25);
-console.log(`inainte de functie: ${date}`);
+//console.log(`inainte de functie: ${date}`);
 getDateAgo(date, -1);
 getDateAgo(date, -28);
+getDateAgo(date, 365);
+
+// ***************************************************
+
+/*
+Last day of month?
+importance: 5
+
+Write a function getLastDayOfMonth(year, month) that returns the last day of month. 
+Sometimes it is 30th, 31st or even 28/29th for Feb.
+
+Parameters:
+
+    year – four-digits year, for instance 2012.
+    month – month, from 0 to 11.
+
+For instance, getLastDayOfMonth(2012, 1) = 29 (leap year, Feb).
+
+Open a sandbox with tests.
+*/
+
+function getLastDayOfMonth(year,month) {
+    const luna = new Date (year,month);
+    console.log (luna);
+    
+}
+
+getLastDayOfMonth(2012, 1);
