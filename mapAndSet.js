@@ -1,5 +1,5 @@
 // ***************** 04.03.22**********
-
+console.log("******************* mapAndSet.js *********************");
 
 /*
 Filter unique array members
@@ -95,7 +95,7 @@ function aclean(arr) {
     for (let char of arr){
         tempArr.push(char.toLowerCase().split("").sort().join(""));
         // am folosit aceasi comanda pt tempArr ca sa le salvez intr-un Map sub forma de [array normal , array sortat]
-        map.set( char , char.toLowerCase().split("").sort().join("") );
+        map.set( char.toLowerCase().split("").sort().join("") , char );
     }
     console.log(`TempArr: `)
     console.log(tempArr); // ok [ [] , [] , [] ] 
@@ -140,3 +140,94 @@ function aclean(arr) {
 
 
 aclean(arr);
+
+// ****************** 07.03.22 **********
+
+/*
+Sum the properties
+importance: 5
+
+There is a salaries object with arbitrary number of salaries.
+
+Write the function sumSalaries(salaries) that returns the sum of all salaries using Object.values and the for..of loop.
+
+If salaries is empty, then the result must be 0.
+
+For instance:
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+alert( sumSalaries(salaries) ); // 650
+
+Open a sandbox with tests.
+*/
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+function sumSalaries(obj){
+  
+  let suma = 0;
+  // iterare prin obj ca sa citeasca valoriile 
+  // aduna elementele
+  for (let value of Object.values(obj)) {
+    suma += value;
+  }
+
+  return suma;
+
+}
+console.log(`***** Suma salariilor este: ${sumSalaries(salaries)}`);
+
+const objGol = {};
+console.log(`***** Suma salariilor este: ${sumSalaries(objGol)}`);
+
+// *************************
+
+/*
+Count properties
+importance: 5
+
+Write a function count(obj) that returns the number of properties in the object:
+
+let user = {
+  name: 'John',
+  age: 30
+};
+
+alert( count(user) ); // 2
+
+Try to make the code as short as possible.
+
+P.S. Ignore symbolic properties, count only “regular” ones.
+
+Open a sandbox with tests.
+*/
+
+function count (obj) {
+  //Object.key(obj) returneaza un array
+  return Object.keys(obj).length; 
+  
+}
+
+console.log(`Nr de elemente din salaries este: ${count(salaries)}`);
+
+// mijto :) console.log(Object.entries(arr));
+
+// ********************
+// https://edabit.com/challenges/javascript
+
+// intreaba-l pe Serban daca merita :)
+
+//export de objects in celelalte fisiere js:
+// fixPwla ca nu merge fara node :)
+
+//export { salaries };
+//*****************************************
