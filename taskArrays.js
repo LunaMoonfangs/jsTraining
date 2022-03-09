@@ -790,3 +790,5 @@ function groupById(arr) {
 let usersById = groupById(users);
 console.log('*** Obiectul grupat dupa ID este: ');
 console.log(usersById);
+
+ 
