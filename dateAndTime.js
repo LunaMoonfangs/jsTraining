@@ -127,6 +127,13 @@ Open a sandbox with tests.
 
 function getLastDayOfMonth(year,month) {
     const luna = new Date (year,month);
+    let ultimaZi = 28;
+    while(luna.getMonth() = month){
+        ultimaZi++;
+        luna.setDate(ultimaZi);
+        console.log(`ultimaZi= ${ultimaZi} `)
+    }
+
     console.log (luna);
     
 }
