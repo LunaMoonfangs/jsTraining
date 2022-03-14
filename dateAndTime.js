@@ -124,18 +124,80 @@ For instance, getLastDayOfMonth(2012, 1) = 29 (leap year, Feb).
 
 Open a sandbox with tests.
 */
+console.log('*******************Last day of mounth **************');
 
 function getLastDayOfMonth(year,month) {
-    const luna = new Date (year,month);
-    let ultimaZi = 28;
-    while(luna.getMonth() = month){
-        ultimaZi++;
-        luna.setDate(ultimaZi);
-        console.log(`ultimaZi= ${ultimaZi} `)
-    }
-
+    // salvez data, luna curenta si ziua curenta formata din (year , month)
+    let luna = new Date (year,month);
     console.log (luna);
+    let lunaTest = luna.getMonth();
+    let ultimaZi = luna.getDate();
+
+    // cat timp luna curenta nu se modifica creste ultima zi
+    while(lunaTest == month){
+        luna.setFullYear(year,lunaTest,ultimaZi++);
+        lunaTest = luna.getMonth();        
+    }
+    console.log (`Ultima zi din luna este: ${ultimaZi-2}`);
     
+/*   ********* Solutia lor: *************************
+Let’s create a date using the next month, but pass zero as the day:
+
+function getLastDayOfMonth(year, month) {
+  let date = new Date(year, month + 1, 0); 
+  return date.getDate();
+}
+
+alert( getLastDayOfMonth(2012, 0) ); // 31
+alert( getLastDayOfMonth(2012, 1) ); // 29
+alert( getLastDayOfMonth(2013, 1) ); // 28
+
+Normally, dates start from 1, but technically we can pass any number, 
+the date will autoadjust itself. So when we pass 0, 
+then it means “one day before 1st day of the month”, 
+in other words: “the last day of the previous month”.  // in other words: sa-i f#t :)
+
+Open the solution with tests in a sandbox.
+*/
 }
 
 getLastDayOfMonth(2012, 1);
+let dateNow = new Date();
+const year= dateNow.getFullYear();
+const month = dateNow.getMonth(); 
+getLastDayOfMonth(year,month);
+
+
+
+// ****************************************************
+/*
+How many seconds have passed today?
+importance: 5
+
+Write a function getSecondsToday() that returns the number of seconds from the beginning of today.
+
+For instance, if now were 10:00 am, and there was no daylight savings shift, then:
+
+getSecondsToday() == 36000 // (3600 * 10)
+
+The function should work in any day. That is, it should not have a hard-coded value of “today”.
+*/
+
+function getSecondsToday(){
+    let today = new Date();
+    let now = new Date();
+
+    today.setHours(0, 0, 0, 0);
+
+    console.log(`astazi au trecut: ${now.getHours(today)} ore , ${now.getMinutes(today)} minute si ${now.getSeconds(today)} secunde`);     
+    console.log ((`${now.getHours(today)}` * 3600 ) +  (`${now.getMinutes(today)} ` * 60)  + (`${now.getSeconds(today)}`) );
+
+    
+}
+
+getSecondsToday();
+
+//******************************************
+
+
+
