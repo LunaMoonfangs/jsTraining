@@ -46,17 +46,22 @@ function sumWithFor(nr){ // functia pt for loop
     }
     return sum;        
 }
+/*
 let date1 = Date.now();
 console.log(`Timp start for: ${date1}`);
+*/
+console.time(`sumWithFor`);
 
 let sumaForLoop = sumWithFor(nr); // apelare functie 
 // calcul de timp pt functia cu for loop
 
+console.timeEnd(`sumWithFor`);
+/*
 let date2 = Date.now()-date1;
 let date3 = Date.now();
 console.log(`Timp stop for: ${date3}`);
 console.log(`Suma cu for este: ${sumaForLoop} si a fost calculata in ${date2} ms`);
-
+*/
 function sumWithRecursion(nr) { // functia recursiva
     
     if (nr == 1) return 1;
@@ -67,15 +72,15 @@ function sumWithRecursion(nr) { // functia recursiva
 // calcul de timp pt functia recursiva
 console.log(`******** func recursiva ************** `);
 
-let dateStartRecursiv = Date.now();
-console.log(`Timp start funct recursiva: ${dateStartRecursiv}`);
+// let dateStartRecursiv = Date.now();
+// console.log(`Timp start funct recursiva: ${dateStartRecursiv}`);
 
 let sumaRecursiv = sumWithRecursion(nr);
 
-let timpCalcRecursiv = Date.now()-dateStartRecursiv;
-let dateStopRecursiv = Date.now();
-console.log(`Timp stop functie recursiva: ${dateStopRecursiv}`);
-console.log(`Suma cu funct recursiva este: ${sumaRecursiv} si a fost calculata in ${timpCalcRecursiv} ms`);
+// let timpCalcRecursiv = Date.now()-dateStartRecursiv;
+// let dateStopRecursiv = Date.now();
+// console.log(`Timp stop functie recursiva: ${dateStopRecursiv}`);
+// console.log(`Suma cu funct recursiva este: ${sumaRecursiv} si a fost calculata in ${timpCalcRecursiv} ms`);
 
 console.log(`************** progresie aritmetica ***********`);
 
@@ -173,3 +178,5 @@ function findFibo(nr) {
 
 let FiboNr = findFibo(nr);
 console.log(`Al ${nr}lea nr Fibo este: ${FiboNr}`);
+
+// *****************************************************************************
