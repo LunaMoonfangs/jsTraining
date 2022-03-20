@@ -108,12 +108,14 @@ Open a sandbox with tests.
 console.log(` ************ Counter increase, decrease si set value: *****************`);
 
 function makeCounter() {
+  // let count aici ca sa fie in makeCounter Enviroment
   let count = 0;
 
   function counter() {
-    return count++;
+    return ++count;
   };
-
+  // set si decrease sunt functii in Enviromentul lui counter 
+  // dar pot sa acceseze si count care e local
   counter.set = function(value) {
     count = value;
     return count;
@@ -123,7 +125,7 @@ function makeCounter() {
     return --count;
   };
 
-  console.log(`cont este: ` , count);
+  console.log(`count este: ` , count);
   return counter;
 }
 
