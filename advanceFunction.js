@@ -72,7 +72,7 @@ function inArray(arr) {
     // daca item se gaseste in interiorul lui arr => return item
     if (arr.includes(item)) {
       console.log(`inArray item: ${item}`);
-      return true;
+      return true; // deoarece includes returneaza TRUE/FALSE daca gaseste sau nu item
     }
   };
 
@@ -85,7 +85,8 @@ function inBetween(nr1, nr2) {
   }
 }
 
-
+// ************* function name NFE ************************
+console.log(`****************** NFE ***************`);
 /*
 Tasks
 Set and decrease for counter
@@ -136,4 +137,50 @@ console.log(`Counter.set(10): ` , counter.set(10));
 console.log(`Counter.decrease(): ` , counter.decrease());
 
 
+// *****************************************************
+
+// Sum with an arbitrary amount of brackets
+// importance: 2
+
+// Write function sum that would work like this:
+
+// sum(1)(2) == 3; // 1 + 2
+// sum(1)(2)(3) == 6; // 1 + 2 + 3
+// sum(5)(-1)(2) == 6
+// sum(6)(-1)(-2)(-3) == 0
+// sum(0)(1)(2)(3)(4)(5) == 15
+
+// P.S. Hint: you may need to setup custom object to primitive conversion for your function.
+
+function sumWithArbitrary (nr1) { 
+  // imi trebuie o variabila care sa pastreze suma intermediara:
+  let result = nr1;
+  
+  // pt ca functia sa accepte si de parametri => trebuie sa am un la return o functie
+  let suma = function (nr){
+    result = result + nr;
+    console.log(`result: ` , result);
+    return suma;
+  }
+  // pt ca urmatoarea functie sa primeasca un numar ca argument => trebuie sa returnez rezultatul
+  // m-am luat dupa HINT si (am transformat "result" in string) si am transformat (string) in Number
+  // MDN number to string: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString
+  // MDN object to string: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString 
+  
+  Number(suma.toString = function() {
+    return result; 
+  });
+
+  console.log(`typeof suma: `, typeof(suma)); // typeof suma:  function 
+  //return o functie:
+  return suma;
+  // daca tin deasupra de suma, imi apare ca ii obj ?? de ce ?
+  
+
+}
+
+console.log(`sumWithArbitrary(1)(2)(3)` , sumWithArbitrary(1)(2)(3));
+console.log(`sumWithArbitrary(1)(2)(3)(-5)(0)(11)` , sumWithArbitrary(1)(2)(3)(-5)(0)(11));
+
+// ***********************************************
 
