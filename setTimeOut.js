@@ -32,14 +32,21 @@ function printNumbers (from , to) {
         console.log(`${from} este mai mare ca ${to}`);        
     } else {
         let timerTimeout = setTimeout( interval , 2000 );
+        debugger;
+        let start = from;
+        let stop = to;
 
-        // let timerNested = setTimeout( function nestedInterval() {
-        //     for(let i = from ; i <= to ; i++){
-        //         debugger;
-        //         console.log(`Delay cu nestedInterval: `, i);
-        //         setTimeout( nestedInterval , 1000);            
-        //     }
-        // } , 1000 );
+        let timerNested = setTimeout( function nestedInterval() {
+            //for(let i = from ; i <= to ; i++){  // cu for intra in bucla fara sa se opreasca
+                if(start !== stop+1){
+                
+                console.log(`Delay cu nestedInterval: `, start++);
+                setTimeout( nestedInterval , 1000);            
+            }
+        } , 1000 );
+        // daca am folosit clearTimeout nu mai porneau 
+        // clearTimeout(timerNested);
+        //clearTimeout(timerTimeout);
     }
 }
 
