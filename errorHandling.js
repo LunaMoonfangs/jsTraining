@@ -1,3 +1,4 @@
+console.log(`************* Error handling **************`);
 // Inherit from SyntaxError
 // importance: 5
 
